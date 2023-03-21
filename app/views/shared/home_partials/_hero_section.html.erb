@@ -10,10 +10,10 @@
             </p>
             
             <div class="buttons__container">
-                <%= link_to "Employer", new_user_registration_path, class: "login__btn me-3" %>
+                <%= link_to "Employer", new_user_registration_path(type: "Recruiter"), class: "login__btn me-3" %>
                 <%# <button class="login__btn" style="margin-right: 20px;">Employer</button> %>
                 <%# <button class="login__btn">Applicant</button> %>
-                <%= link_to "Applicant", new_user_registration_path, class: "login__btn me-3" %>
+                <%= link_to "Applicant", new_user_registration_path(type: "Applicant"), class: "login__btn me-3"  %>
             </div>
         </div>
         <div>
