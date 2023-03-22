@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'role' => 'role#index'
   root 'home#index'
   devise_for :users, controllers: { registrations: "devise_overide/registrations"}
   get 'confirmation_pending' => 'overide#after_registration_path'
