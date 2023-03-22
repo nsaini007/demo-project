@@ -1,0 +1,23 @@
+<div class="hero__section">
+
+    <div class="container d-flex align-items-center">
+            <div class="">
+            <h1> 
+                India's #1 Jobs Portal
+            </h1> 
+            <p>
+                3 Crore+ Candidates | 2 Lakh+ Employers 50 Lakh+ Jobs | 70+ Cities
+            </p>
+            
+            <div class="buttons__container">
+                <%= link_to "Employer", new_user_registration_path(type: "Recruiter"), class: "login__btn me-3" %>
+                <%# <button class="login__btn" style="margin-right: 20px;">Employer</button> %>
+                <%# <button class="login__btn">Applicant</button> %>
+                <%= link_to "Applicant", new_user_registration_path(type: "Applicant"), class: "login__btn me-3"  %>
+            </div>
+        </div>
+        <div>
+            <img src="https://cdn.apna.co/cloudinary/HomepageRevampAssets/heroV2.png" alt="">
+        </div>
+    </div>
+</div>

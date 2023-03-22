@@ -1,0 +1,57 @@
+.company__image__container {
+    width: 250px;
+    object-fit: contain;
+}
+
+.company__image__container img {
+    width: 100%;
+}
+
+.company__heading {
+    max-width: 1340px;
+    text-align: center;
+}
+
+.login__btn {
+    outline: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #2a54d5;
+    color: white;
+    font-weight: 500;
+}
+
+.login__btn:hover {
+    transition: all ease-in-out 0.3s;
+    color: black;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.hero__section {
+    background: #d5dfff;
+}
+
+.carousel__custom {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel__left {
+    width: 40%;
+    border-radius: 50px 0 50px 0;
+    overflow: hidden;
+}
+
+.carousel__left img {
+    width: 100%;
+}
+
+.carousel__right {
+    width: 50%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    color: #2a54d5 !important;
+}

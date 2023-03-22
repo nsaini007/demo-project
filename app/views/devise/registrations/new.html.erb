@@ -1,0 +1,7 @@
+<% if(params[:type] == "Applicant" or params[:type] == "Recruiter" or !params[:type].present?) %>
+  <%= render "new_form" %>
+<% else %>
+  <%= "Does not exist" %>
+<%= params[:type] %>
+  <%= link_to "home", root_path %>
+<% end %>
