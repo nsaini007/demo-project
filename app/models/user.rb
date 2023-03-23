@@ -1,8 +1,11 @@
 class User < ApplicationRecord
-  has_many :jobs, class_name: 'Job', foreign_key: 'recruiter_id'
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
   validates :type,:first_name, :last_name,  presence: true
+
+  #user validation type
+  #is_applicant? methods
 end

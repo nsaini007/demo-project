@@ -13,16 +13,19 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-            <a class="nav-link px-3" href="#!">Jobs</a>
+            <%# <a class="nav-link px-3" href="#!">Jobs</a> %>
+            <%= link_to "Jobs", jobs_path, class: "nav-link px-3" %>
+            <li class="nav-item">
+            <%#= link_to "Companies", companies_path, class: "nav-link px-3" %>
+            <%# <a class="nav-link px-3" href="#!">Companies</a> %>
             </li>
             <li class="nav-item">
-            <a class="nav-link px-3" href="#!">Companies</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link px-3" href="#!">Salaries</a>
+            <%#= link_to "Salaries", salaries_path, class: "nav-link px-3" %>
+            <%# <a class="nav-link px-3" href="#!">Salaries</a> %>
             </li>
             <li class="nav-item active">
-            <a class="nav-link px-3" href="#!">Careers</a>
+            <%#= link_to "Careers", careers_path, class: "nav-link px-3" %>
+            <%# <a class="nav-link px-3" href="#!">Careers</a> %>
             </li>
             <!-- <li class="nav-item">
             <a class="nav-link px-3" href="#!">contact us</a>
