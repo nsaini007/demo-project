@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
   validates :type,:first_name, :last_name,  presence: true
 
-  #user validation type
-  #is_applicant? methods
+  validate :check_type
+
+  private
+  def check_type
+      unless self.type == "Applicant" or self.type == "Recruiter"
+        self.errors.add(:type, "Not a valid type")
+      end 
+  end
 end

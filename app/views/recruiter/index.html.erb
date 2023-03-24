@@ -1,0 +1,5 @@
+<h1>Recruiter#index</h1>
+<p>Find me in app/views/recruiter/index.html.erb</p>
+<% @recruiter_jobs.each do |job| %>
+<%= render partial: "shared/jobs_partials/job_card", locals: {job: job}%>
+<% end %>   
