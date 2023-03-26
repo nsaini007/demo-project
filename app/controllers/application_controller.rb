@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    #not working why i don't know
     rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
     before_action :configure_permitted_parameters, if: :devise_controller?
 
