@@ -1,0 +1,41 @@
+<aside class="sidebar">
+    <nav class="sidebar-nav">
+
+        <ul>
+            <div id="arrow__btn">
+                <i class="fa-solid fa-circle-arrow-right"></i></i>
+            </div>
+            <li>
+                <a href="#"><i class="fa-sharp fa-solid fa-shop"></i> <span>Shop</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-sliders"></i> <span class="">Controls</span></a>
+
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-briefcase"></i><span class="">Folio</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-chart-simple"></i> <span class="">Graphicals</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-paper-plane"></i> <span class="">Papers</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-location-dot"></i> <span class="">Finder</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-bars"></i> <span class="">Cocaine</span></a>
+            </li>
+
+        </ul>
+    </nav>
+</aside>
+
+<script>
+    arrowBtn = document.getElementById("arrow__btn");
+    arrowBtn.addEventListener("click", () => {
+        arrowBtn.classList.toggle("arrow__btn__toggle");
+        document.querySelector(".sidebar").classList.toggle("sidebar__toggle");
+    });
+</script>

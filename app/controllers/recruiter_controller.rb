@@ -1,4 +1,6 @@
 class RecruiterController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     if helpers.recruiter?
       id = current_user.id
