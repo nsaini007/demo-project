@@ -1,0 +1,54 @@
+<div class="my-2 row">
+    <div class="col-4">
+        <h5 class="card-title"><%= job.title %></h5>
+        <p class="card-text"><%= job.description %></p>
+        <%# <a href="#" class="btn btn-primary">Show Details</a> %>
+    </div>
+    <div class="col-4">
+        <h5 class="card-title"><%= job.title %></h5>
+        <p class="card-text"><%= job.description %></p>
+    </div>
+    <div class="col-4 d-flex">
+        <div class="w-50">
+            <h6 class="card-title">Job Status</h6>
+            <p>Active</p>
+        </div>
+
+        <div class="w-50">
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #444;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+</style>
