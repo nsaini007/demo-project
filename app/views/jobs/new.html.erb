@@ -1,9 +1,1 @@
-<h1>Jobs#new</h1>
-<p>Find me in app/views/jobs/new.html.erb</p>
-<%= form_with model: @job, url: recruiter_jobs_path(recruiter_id: current_user.id) do |f| %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %><br>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %><br>
-    <%= f.submit %>
-<% end %>
+<%= render "shared/jobs_partials/form" %>

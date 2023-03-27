@@ -8,7 +8,7 @@
 
                 <h1 class="mb-5 text-center">Create New Job</h1>
 
-                <%= form_with model: @job, url: recruiter_job_path(recruiter_id: current_user.id) do |f| %>
+                <%= form_with model: @job, url: recruiter_jobs_path(recruiter_id: current_user.id) do |f| %>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                     <div class="col-12 col-md-12 mb-4">

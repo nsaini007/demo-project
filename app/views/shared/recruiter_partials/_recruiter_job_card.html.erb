@@ -1,12 +1,18 @@
 <div class="my-2 row">
     <div class="col-4">
         <h5 class="card-title"><%= job.title %></h5>
-        <p class="card-text"><%= job.description %></p>
+        <p class="card-text"><span>Location: </span><%= "location" %></p>
         <%# <a href="#" class="btn btn-primary">Show Details</a> %>
     </div>
-    <div class="col-4">
-        <h5 class="card-title"><%= job.title %></h5>
-        <p class="card-text"><%= job.description %></p>
+    <div class="col-4 d-flex">
+        <div class="w-50">
+            <h6 class="card-title">Vacancies</h6>
+            <p class="card-text"><%= job.vacancies %></p>
+        </div>
+        <div class="w-50">
+            <h6 class="card-title">Applicants</h6>
+            <p class="card-text"><%= "dummy number" %></p>
+        </div>
     </div>
     <div class="col-4 d-flex">
         <div class="w-50">

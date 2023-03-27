@@ -23,3 +23,8 @@ Things you may want to cover:
 
 * ...
 # demo-project
+
+# Things to remember
+
+It will give applicant's profile = ApplicantProfile.last.applicant.applicant_profile
+
