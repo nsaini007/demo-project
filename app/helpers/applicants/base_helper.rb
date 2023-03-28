@@ -1,0 +1,2 @@
+module Applicants::BaseHelper
+end

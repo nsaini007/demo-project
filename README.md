@@ -28,3 +28,5 @@ Things you may want to cover:
 
 It will give applicant's profile = ApplicantProfile.last.applicant.applicant_profile
 
+current_user will return in controller only if called explicitely i.e. inside a function OR in before action
+

@@ -1,7 +1,66 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
-<%= @job.title %><br>
-<%= @job.description%><br>
-<%= @job.job_type%><br>
-<%= @job.vacancies%><br>
-<%= @job.salary%>
+<div class="container my-5 py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-lg-6 mb-4 mb-lg-0">
+      <div class="card mb-3" style="border-radius: .5rem;">
+        <div class=" g-0">
+          <div class="gradient-custom text-white p-4 pb-0"
+            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+            <h5 style= "color: black"><%= @job.title %></h5>
+            <h6 style= "color: black"><%= "Company name" %></h6>
+            <p class="text-muted mb-0" ><%= "City, State" %></p>
+            <%= link_to "Apply", {}, class: "btn btn-primary mt-2" %>
+          </div>
+          <div class="">
+            <div class="card-body p-4">
+              <h6>Job details</h6>
+              <hr class="mt-0 mb-4">
+              <div class="row pt-1">
+                <div class="col-6 mb-3">
+                  <h6>Salary</h6>
+                  <p class="text-muted">₹ <%= @job.salary || "Not Disclosed" %> a year</p>
+                </div>
+                <div class="col-6 mb-3">
+                  <h6>Job type</h6>
+                  <p class="text-muted"><%= @job.job_type || "NA" %></p>
+                </div>
+              </div>
+              <div class="row pt-1">
+                <div class="col-6 mb-3">
+                  <h6>Vacancies</h6>
+                  <p class="text-muted"><%= @job.vacancies || "Not Disclosed" %></p>
+                </div>
+                <!--
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted">123 456 789</p>
+                  </div>
+                -->
+              </div>
+              <h6>Full Job Description</h6>
+              <hr class="mt-0 mb-4">
+              <div class="row pt-1">
+                <div class="col-12 mb-3">
+                  <h6><%= @job.job_type || "NA" %></h6>
+                  <p class="text-muted"><%= @job.description%></p>
+                </div>
+              </div>
+              <h6>Resume</h6>
+
+              <hr class="mt-0 mb-4">
+              <div class="row pt-1">
+                <div class="col-6 mb-3">
+                  <h6>Recent</h6>
+                  <p class="text-muted">Lorem ipsum</p>
+                </div>
+                <div class="col-6 mb-3">
+                  <h6>Most Viewed</h6>
+                  <p class="text-muted">Dolor sit amet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

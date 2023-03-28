@@ -1,5 +1,4 @@
 module ApplicationHelper
-    
     def recruiter?
         if current_user.type == "Recruiter"
             true
@@ -14,5 +13,5 @@ module ApplicationHelper
         else
             false
         end
-    end
+    end    
 end

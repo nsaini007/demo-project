@@ -1,12 +1,12 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :destroy]
+  before_action :set_job, only: [:edit, :destroy]
 
   def index
     @jobs = Job.order('created_at DESC')
   end
 
   def show
-    # @job = current_user.jobs.find_by_id(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def new
