@@ -1,0 +1,2 @@
+module Recruiters::BaseHelper
+end
