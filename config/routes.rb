@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations"}
   get 'confirmation_pending' => 'overide#after_registration_path'
 
+  resources :applications, only: [:create]
   # resources :recruiter, only: [:index] do
   #   resources :jobs    
   # end

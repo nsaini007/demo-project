@@ -23,9 +23,6 @@ class ApplicationController < ActionController::Base
     end
 
     def applicant?
-        puts "######################"
-        puts "######################"
-        puts "######################"
         if current_user.type == "Applicant"
             true
         else

@@ -8,6 +8,12 @@
             <h5 style= "color: black"><%= @job.title %></h5>
             <h6 style= "color: black"><%= "Company name" %></h6>
             <p class="text-muted mb-0" ><%= "City, State" %></p>
+            <%= form_with model: @application, url: applications_path(job_id: @job) do |f| %>
+                <%#= f.hidden_field :job_id, value: @job.id  %>
+                <%= f.label :resume %>
+                <%= f.file_field :resume %><br/>
+                <%= f.submit %>
+            <% end %>
             <%= link_to "Apply", {}, class: "btn btn-primary mt-2" %>
           </div>
           <div class="">

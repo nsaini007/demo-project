@@ -1,4 +1,35 @@
+
+
+<div class="container">
+  <%= search_form_for @q do |f| %>
+    <div class="input-group">
+      <div class="form-outline">
+        <%= f.search_field :title_cont, id:"form1", class:"form-control" %>
+        <%= f.label :title_cont, 'Search Jobs', class: "form-label", for: "form1" %>
+      </div>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <%= search_form_for @q do |f| %>
+      <%= f.label :title_cont, 'Search Jobs' %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit %>
+    <% end %>
+</div>
 <div class="container" style="margin-top: 6rem;">
+
+  <div class="row mb-4">
+    <%= search_form_for @q do |f| %>
+      <div class="input-group">
+        <div class="form-outline">
+          <%= f.search_field :title_cont, id:"form1", class:"form-control" %>
+          <%= f.label :title_cont, 'Search Jobs', class: "form-label", for: "form1" %>
+        </div>
+        <%= f.submit class: "btn btn-primary bg-dark" %>
+        <% end %>
+      </div>
+  </div>
+
   <div class="row">
       <% @jobs.each do |job| %>
         <%= render partial: "shared/jobs_partials/job_card", locals: {job: job} %>
