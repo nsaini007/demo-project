@@ -24,9 +24,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Dropdown</button>
                 <div class="dropdown-content">
-                <%= link_to "Edit", edit_recruiter_job_path(current_user,job) %>
-                <%= link_to "Show", recruiter_job_path(current_user,job) %>
-                <%= link_to "Delete", recruiter_job_path(current_user,job), method: :delete %>
+                <%= link_to "Edit", edit_recruiter_recruiter_job_path(current_user,job) %>
+                <%= link_to "Show", job_path(job) %>
+                <%= link_to "Delete", recruiter_recruiter_job_path(current_user,job), method: :delete %>
                 </div>
             </div>
         </div>

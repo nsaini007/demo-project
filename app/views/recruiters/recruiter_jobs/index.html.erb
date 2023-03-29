@@ -1,0 +1,5 @@
+<div class="container">    
+        <% @recruiter_jobs.each do |job| %>
+            <%= render partial: "shared/recruiter_partials/recruiter_job_card", locals: {job: job}%>
+        <% end %>
+</div>

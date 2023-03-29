@@ -57,6 +57,7 @@
                   <%= f.label :resume %>
                   <%= f.file_field :resume %><br>
                   <%= @profile.resume.blob.filename %><br>
+                  <%= link_to @profile.resume.blob.filename, rails_blob_path(@profile.resume.blob, disposition: 'preview'), target: "_blank" %>
                   <%= f.submit "Upload Resume" %>
                   <% end %>
                   <hr class="mt-0 mb-4">

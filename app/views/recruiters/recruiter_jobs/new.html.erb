@@ -1,0 +1,24 @@
+<%#= render "shared/jobs_partials/form" %>
+
+<section class="intro">
+    <div class="d-flex align-items-center h-100 my-4">
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card" style="border-radius: 1rem;">
+            <div class="card-body p-5">
+
+                <h1 class="mb-5 text-center">Create New Job</h1>
+
+                <%= form_with model: @recruiter_job, url: recruiter_recruiter_jobs_path(recruiter_id: current_user.id) do |f| %>
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <%= render partial: "form", locals: {f: f} %>
+                <% end %>
+
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
