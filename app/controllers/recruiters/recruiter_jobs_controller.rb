@@ -14,7 +14,7 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     end
   
     def create
-      @recruiter_job = current_user.jobs.create!(job_params)
+      @recruiter_job = current_user.jobs.create(job_params)
       if @recruiter_job.save
         redirect_to recruiter_index_path
       else

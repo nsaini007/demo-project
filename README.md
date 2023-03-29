@@ -34,4 +34,5 @@ current_user will return in controller only if called explicitely i.e. inside a 
  Applicant.last.applications
  Application.last.applicant
  Application.last.job
+ Job.third_to_last.applications.find(applicant_id: 13)
 
