@@ -30,3 +30,8 @@ It will give applicant's profile = ApplicantProfile.last.applicant.applicant_pro
 
 current_user will return in controller only if called explicitely i.e. inside a function OR in before action
 
+ Applicant.last.applications.last.job
+ Applicant.last.applications
+ Application.last.applicant
+ Application.last.job
+
