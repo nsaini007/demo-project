@@ -5,7 +5,9 @@
             <div class=" g-0">
               <div class=" gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <%#= image_tag current_user.profile_picture, alt: "Avatar", class: "img-fluid my-5", style: "width: 80px; object-fit: cover;"  %>
+                <% if current_user.profile_picture.attached? %>
+                  <%= image_tag current_user.profile_picture, alt: "Avatar", class: "img-fluid my-5", style: "width: 80px; object-fit: cover;"  %>
+                <% end %>
                 <%# <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" /> %>
                 <h5 style= "color: black"><%= current_user.name %></h5>

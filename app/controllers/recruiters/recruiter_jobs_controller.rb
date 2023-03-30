@@ -36,7 +36,7 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     
     def destroy
       # @job = current_user.jobs.find_by_id(params[:id])
-      if @recruiter_job.delete
+      if @recruiter_job.destroy
         redirect_to recruiter_index_path, notice: "Job has beeen deleted successfully"
       else
         

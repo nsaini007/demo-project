@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :recruiter, class_name: 'User'
-  has_many :applications
+  has_many :applications, dependent: :destroy
 
   
   def self.ransackable_attributes(auth_object = nil)
