@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   scope module: :recruiters do
     resources :recruiter, only: [:index] do
-      resources :recruiter_applications
+      resources :recruiter_applications do
+        put :accept
+        put :reject
+      end
       resources :recruiter_jobs, except: [:show]
     end
   end

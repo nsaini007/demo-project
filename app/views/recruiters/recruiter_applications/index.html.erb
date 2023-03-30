@@ -38,6 +38,9 @@
                 <div class="dropdown">
                     <button class="dropbtn">Dropdown</button>
                     <div class="dropdown-content">
+                    <%#= button_to "Approve", recruiter_recruiter_application_accept(shop.id), method: :put %>
+                    <%#= button_to "Disapprove", recruiter_recruiter_application_reject(shop.id), method: :put %>
+
                     <%#= link_to "Edit", edit_recruiter_recruiter_job_path(current_user,job) %>
                     <%#= link_to "Show", job_path(job) %>
                     <%#= link_to "Applications", recruiter_recruiter_applications_path(id: job.id) %>
