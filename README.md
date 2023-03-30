@@ -35,4 +35,6 @@ current_user will return in controller only if called explicitely i.e. inside a 
  Application.last.applicant
  Application.last.job
  Job.third_to_last.applications.find(applicant_id: 13)
+ Applicant.last.applications.first_or_create!(job_id: 31)
+Applicant.last.applications.find_or_create_by!(job_id: 31)
 
