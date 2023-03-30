@@ -6,9 +6,9 @@ class ApplicationsController < ApplicationController
     def create
         @application = current_user.applications.create(application_params)
         if @application.save
-            redirect_to root_path, notice: "Job applied successfully"
+            redirect_to job_path(id: params[:job_id]), alert: "Job applied successfully"
         else
-            
+            redirect_to job_path(id: params[:job_id]), alert: "You have already applied to this job"
         end
     end
 

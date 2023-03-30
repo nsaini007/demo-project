@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  # namespace :recruiters do
+  #   get 'recruiter_applications/index'
+  # end
   scope module: :applicants do
     resources :applicant_profile, except: [:index] 
   end
 
   scope module: :recruiters do
     resources :recruiter, only: [:index] do
+      resources :recruiter_applications
       resources :recruiter_jobs, except: [:show]
     end
   end

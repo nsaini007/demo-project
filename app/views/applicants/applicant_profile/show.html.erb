@@ -5,7 +5,7 @@
             <div class=" g-0">
               <div class=" gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <%= image_tag current_user.profile_picture, alt: "Avatar", class: "img-fluid my-5", style: "width: 80px; object-fit: cover;"  %>
+                <%#= image_tag current_user.profile_picture, alt: "Avatar", class: "img-fluid my-5", style: "width: 80px; object-fit: cover;"  %>
                 <%# <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" /> %>
                 <h5 style= "color: black"><%= current_user.name %></h5>
@@ -56,8 +56,10 @@
 
                   <%= f.label :resume %>
                   <%= f.file_field :resume %><br>
-                  <%= @profile.resume.blob.filename %><br>
-                  <%= link_to @profile.resume.blob.filename, rails_blob_path(@profile.resume.blob, disposition: 'preview'), target: "_blank" %>
+                  <%#= @profile.resume.blob.filename %><br>
+                  <% if @profile.resume.attached? %>
+                    <%= link_to @profile.resume.blob.filename, rails_blob_path(@profile.resume.blob, disposition: 'preview'), target: "_blank" %>
+                  <% end %>
                   <%= f.submit "Upload Resume" %>
                   <% end %>
                   <hr class="mt-0 mb-4">
