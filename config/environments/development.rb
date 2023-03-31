@@ -90,3 +90,7 @@ Rails.application.configure do
   #   open_timeout:         5,
   #   read_timeout:         5 }
 end
+
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  html_tag.html_safe
+end

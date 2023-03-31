@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   scope module: :recruiters do
     resources :recruiter, only: [:index] do
       resources :recruiter_applications do
-        put :accept
-        put :reject
+        patch :accept, :reject
       end
       resources :recruiter_jobs, except: [:show]
     end
@@ -25,5 +24,6 @@ Rails.application.routes.draw do
   # resources :recruiter, only: [:index] do
   #   resources :jobs    
   # end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

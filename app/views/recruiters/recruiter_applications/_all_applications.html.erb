@@ -1,0 +1,45 @@
+<div class="container">
+    
+    <% @recruiter_applications.each do |application| %>
+      <div class="my-2 row">
+        <div class="col-3">
+            <h5 class="card-title">Applicant Name</h5>
+            <p class="card-text"><%= application.applicant.name %></p>
+            <%# <a href="#" class="btn btn-primary">Show Details</a> %>
+        </div>
+        <div class="col-3 d-flex">
+            <div class="w-50">
+                <h6 class="card-title">Applied For</h6>
+                <p class="card-text"><%= application.job.title %></p>
+            </div>
+            <div class="w-50">
+                <h6 class="card-title">Resume</h6>
+                <p class="card-text">
+                <% if application.resume.attached? %>
+                  <%= link_to application.resume.blob.filename, rails_blob_path(application.resume.blob, disposition: 'preview'), target: "_blank" %>
+                <% else %>
+                    NA
+                <% end %>
+                </p>
+            </div>
+        </div>
+        <div class="col-3 d-flex">
+            <div class="w-50">
+                <h6 class="card-title">Status</h6>
+                <p><%= application.status %></p>
+            </div>
+
+            <div class="w-50">
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                    <%= link_to "Accept", recruiter_recruiter_application_accept_path(recruiter_application_id: application,id: application.job.id), method: :patch %>
+                    <%= link_to "Reject", recruiter_recruiter_application_reject_path(recruiter_application_id: application,id: application.job.id), method: :patch %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    <% end %>
+</div>
