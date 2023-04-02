@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:index, :show]
   root 'home#index'
-  devise_for :users, controllers: { registrations: "users/registrations"}
+  devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions"}
   get 'confirmation_pending' => 'overide#after_registration_path'
 
   resources :applications, only: [:create]
