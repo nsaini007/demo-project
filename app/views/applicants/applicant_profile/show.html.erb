@@ -5,14 +5,16 @@
             <div class=" g-0">
               <div class=" gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <% if current_user.profile_picture.attached? %>
-                  <%= image_tag current_user.profile_picture, alt: "Avatar", class: "img-fluid my-5", style: "width: 80px; object-fit: cover;"  %>
-                <% else %>
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                <% end %>
+                <div style="width: 150px; height: 150px;" class="mx-auto rounded-circle overflow-hidden">
+                  <% if current_user.profile_picture.attached? %>
+                    <%= image_tag current_user.profile_picture, alt: "Avatar", class: "", style: "width: 100%; height: 100%; object-fit: cover;"  %>
+                  <% else %>
+                    <img src="https://pixlok.com/wp-content/uploads/2021/10/Profile-Free-Icon.png"
+                    alt="Avatar" class="" style= "width: 100%; height: 100%" />
+                  <% end %>
+                </div>
                 <h5 style= "color: black"><%= current_user.name %></h5>
-                <%= link_to "edit" %>
+                <%= link_to "edit", edit_user_registration_path %>
               </div>
               <div class="">
                 <div class="card-body p-4">
@@ -43,6 +45,16 @@
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
                       <h6>Recent</h6>
+                      <%= form_with model: @profile, url: applicant_profile_path, method: :patch do |f| %>
+
+                        <%= f.label :skills %>
+                        <%= f.select(
+                          :skills, 
+                          options_for_select(ApplicantProfile::SKILLS),
+                          { prompt: "Please select" },
+                          multiple: true, required: true) %>
+                        <%= f.submit "Update Skills" %>
+                      <% end %>
                       <p class="text-muted">Lorem ipsum</p>
                       <p class="text-muted">Lorem ipsum</p>
                       <p class="text-muted">Lorem ipsum</p>

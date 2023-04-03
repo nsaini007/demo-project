@@ -47,16 +47,22 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
     ></script>
     <!--
-      <% if !alert.nil? || !flash.any?%>
+      <% if !alert.nil? %>
       <script>
         toastr.error("<%= alert%>")
-        toastr.error("<%= flash%>")
-        toastr.success('We do have the Kapua suite available.')
-        toastr.success('We do have the Kapua suite available.')
-        toastr.success('We do have the Kapua suite available.')
+      </script>
+      <% end %>
+    
+
+      <% if !flash.any? %>
+      <script>
+        flash.do |flash|
+          toastr.error("<%= flash%>")
+        end
       </script>
       <% end %>
     -->
+
     
   </body>
 </html>

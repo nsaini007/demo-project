@@ -6,11 +6,16 @@ class Recruiters::RecruiterApplicationsController < Recruiters::BaseController
 
   def accept
     @recruiter_applications.find(params[:recruiter_application_id]).accept!
+    redirect_to request.referrer
   end
 
   def reject
     @recruiter_applications.find(params[:recruiter_application_id]).reject!
     redirect_to request.referrer
+  end
+
+  def count_applications
+    @recruiter_applications.count
   end
   
   private

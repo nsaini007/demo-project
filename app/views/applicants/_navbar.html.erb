@@ -24,7 +24,7 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Your Jobs", recruiter_index_path, class: "nav-link", style: "color: #fff" %>
+          <%= link_to "Jobs", jobs_path, class: "nav-link", style: "color: #fff" %>
         </li>
         <li class="nav-item">
           <%= link_to "Post a Job", new_recruiter_recruiter_job_path(current_user), class: "nav-link", style: "color: #fff"  %>
@@ -82,20 +82,19 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
-            loading="lazy"
-          />
+          <% if current_user.profile_picture.attached? %>
+            <%= image_tag current_user.profile_picture, alt: "Avatar", class: "rounded-circle", height: "25", width: "25", style: "object-fit: cover;", alt: "Black and White Portrait of a Man", loading: "lazy"  %>
+          <% else %>
+            <img src="https://pixlok.com/wp-content/uploads/2021/10/Profile-Free-Icon.png"
+            alt="Avatar" class= "rounded-circle" height= "25" width="25" style="object-fit: cover;"/>
+          <% end %>
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <%= link_to "Profile", {}, class: "dropdown-item" %>
+            <%= link_to "Profile", applicant_profile_path, class: "dropdown-item" %>
           </li>
           <li>
             <%= link_to "logout", destroy_user_session_path,class: "dropdown-item", method: :delete  %>

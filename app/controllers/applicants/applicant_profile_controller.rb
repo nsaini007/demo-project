@@ -31,7 +31,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
 
   private
     def profile_params
-      params.require(:applicant_profile).permit(:resume)
+      params.require(:applicant_profile).permit(:resume, skills:[])
     end
 
     def set_profile
