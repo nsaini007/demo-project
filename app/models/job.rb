@@ -1,4 +1,6 @@
 class Job < ApplicationRecord
+  include Discard::Model
+
   belongs_to :recruiter, class_name: 'User'
   has_many :applications, dependent: :destroy
 

@@ -4,7 +4,7 @@ class Recruiters::RecruiterController < Recruiters::BaseController
   def index
     if helpers.recruiter?
       id = current_user.id
-      @recruiter_jobs = current_user.jobs
+      @recruiter_jobs = current_user.jobs.kept
     else
       "nothing"#to be resolved
     end

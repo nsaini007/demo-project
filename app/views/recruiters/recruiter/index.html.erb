@@ -1,3 +1,12 @@
+<style>
+.removed{
+        transform: translateX(100vw);
+        transition: all 1s ease-in-out;
+}
+</style>
+
+
+
 <%= render partial: "shared/recruiter_partials/sidebar" %>
 
 <div class="container" style="margin-top: 6rem;">    
@@ -5,3 +14,38 @@
             <%= render partial: "shared/recruiter_partials/recruiter_job_card", locals: {job: job}%>
         <% end %>
 </div>
+
+
+
+
+<script>
+    let jobCardArr = document.querySelectorAll(".job__card");
+    console.log(jobCardArr.length);
+    for(let i= 0; i<jobCardArr.length; i++) {
+        // console.log(e.target);
+        jobCardArr[i].addEventListener("click", (e) => {
+            console.log(e.target.parentElement.parentElement.parentElement);
+            
+            e.target.parentElement.parentElement.parentElement.classList.add("removed");
+
+            setTimeout(() => {
+                e.target.parentElement.parentElement.parentElement.remove();
+                console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
+                jobId = getJobId();
+                console.log(jobId);
+                jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + jobId;
+                console.log(jobUrl);
+
+
+                Rails.ajax({
+                    url: jobUrl,
+                    type: "delete",
+                })                
+            }, 1000);
+
+            
+        });
+    }
+</script>
+
+

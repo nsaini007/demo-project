@@ -13,6 +13,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+window.Rails = Rails;
 window.toastr = toastr;
 // toastr.options.closeButton = true;
 toastr.options.target = '#my-toastr-container';

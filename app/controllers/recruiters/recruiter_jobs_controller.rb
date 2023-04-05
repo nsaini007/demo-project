@@ -1,14 +1,15 @@
 class Recruiters::RecruiterJobsController < Recruiters::BaseController
   before_action :set_recruiter_job, only: [:edit, :update, :destroy]
   helper_method :count_applicants
-    def index
-      if helpers.recruiter?
-        id = current_user.id
-        @recruiter_jobs = current_user.jobs
-      else
-        "nothing"#to be resolved
-      end
-    end
+
+    # def index
+    #   if helpers.recruiter?
+    #     id = current_user.id
+    #     @recruiter_jobs = current_user.jobs.discarded
+    #   else
+    #     "nothing"#to be resolved
+    #   end
+    # end
 
     def new
       @recruiter_job = Job.new
@@ -37,8 +38,8 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     
     def destroy
       # @job = current_user.jobs.find_by_id(params[:id])
-      if @recruiter_job.destroy
-        redirect_to recruiter_index_path, notice: "Job has beeen deleted successfully"
+      if @recruiter_job.discard
+        # redirect_to recruiter_index_path, notice: "Job has beeen deleted successfully"
       else
         
       end
