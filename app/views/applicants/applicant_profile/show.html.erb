@@ -55,11 +55,9 @@
                           multiple: true, required: true) %>
                         <%= f.submit "Update Skills" %>
                       <% end %>
-                      <p class="text-muted">Lorem ipsum</p>
-                      <p class="text-muted">Lorem ipsum</p>
-                      <p class="text-muted">Lorem ipsum</p>
-                      <p class="text-muted">Lorem ipsum</p>
-                      <p class="text-muted">Lorem ipsum</p>
+                      <% YAML.load(@profile.skills).each do |skill| %>
+                        <p class="text-muted"><%= skill %></p>
+                      <% end %>
                     </div>
                     <div class="col-6 mb-3">
                       <h6>Most Viewed</h6>

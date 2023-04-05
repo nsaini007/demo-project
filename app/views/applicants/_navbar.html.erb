@@ -27,10 +27,10 @@
           <%= link_to "Jobs", jobs_path, class: "nav-link", style: "color: #fff" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Post a Job", new_recruiter_recruiter_job_path(current_user), class: "nav-link", style: "color: #fff"  %>
+          <%#= link_to "Post a Job", new_recruiter_recruiter_job_path(current_user), class: "nav-link", style: "color: #fff"  %>
         </li>
         <li class="nav-item">
-          <%= link_to "Post a Job", new_recruiter_recruiter_job_path(current_user), class: "nav-link", style: "color: #fff"  %>
+          <%#= link_to "Post a Job", new_recruiter_recruiter_job_path(current_user), class: "nav-link", style: "color: #fff"  %>
         </li>
       </ul>
       <!-- Left links -->
@@ -94,7 +94,7 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <%= link_to "Profile", applicant_profile_path, class: "dropdown-item" %>
+            <%= link_to "Profile", applicant_profile_path(current_user), class: "dropdown-item" %>
           </li>
           <li>
             <%= link_to "logout", destroy_user_session_path,class: "dropdown-item", method: :delete  %>
