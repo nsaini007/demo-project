@@ -16,7 +16,7 @@
                 <h6 class="card-title">Resume</h6>
                 <p class="card-text">
                 <% if application.resume.attached? %>
-                  <%= link_to application.resume.blob.filename, rails_blob_path(application.resume.blob, disposition: 'preview'), target: "_blank" %>
+                    <%= link_to application.resume.blob.filename, rails_blob_path(application.resume.blob, disposition: 'preview'), target: "_blank" %>
                 <% else %>
                     NA
                 <% end %>

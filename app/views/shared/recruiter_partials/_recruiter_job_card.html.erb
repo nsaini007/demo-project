@@ -42,7 +42,7 @@
         <%= link_to "Edit", edit_recruiter_recruiter_job_path(current_user,job) %>
         <%= link_to "Show", job_path(job) %>
         <%= link_to "Applications", recruiter_recruiter_applications_path(id: job.id, recruiter_id: current_user) %>
-        <%= link_to "Delete", recruiter_recruiter_job_path(current_user,job), method: :delete, remote: true %>
+        <%= link_to "Delete", recruiter_recruiter_job_path(current_user,job), method: :delete, class: "jobcard__btn", remote: true %>
         </div>
     </div>
 </div>

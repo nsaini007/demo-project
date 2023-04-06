@@ -1,7 +1,8 @@
 <style>
 .removed{
         transform: translateX(100vw);
-        transition: all 1s ease-in-out;
+        opacity: 0;
+        transition: all 0.7s ease-in-out;
 }
 </style>
 
@@ -19,8 +20,7 @@
 
 
 <script>
-    let jobCardArr = document.querySelectorAll(".job__card");
-    console.log(jobCardArr.length);
+    let jobCardArr = document.querySelectorAll(".jobcard__btn");
     for(let i= 0; i<jobCardArr.length; i++) {
         // console.log(e.target);
         jobCardArr[i].addEventListener("click", (e) => {
@@ -30,19 +30,19 @@
 
             setTimeout(() => {
                 e.target.parentElement.parentElement.parentElement.remove();
-                console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
-                jobId = getJobId();
-                console.log(jobId);
-                jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + jobId;
-                console.log(jobUrl);
+            }, 700);
+
+            console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
+            jobId = getJobId();
+            console.log(jobId);
+            jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + jobId;
+            console.log(jobUrl);
 
 
-                Rails.ajax({
-                    url: jobUrl,
-                    type: "delete",
-                })                
-            }, 1000);
-
+            Rails.ajax({
+                url: jobUrl,
+                type: "delete",
+            });
             
         });
     }

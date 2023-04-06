@@ -1,6 +1,6 @@
 class Recruiters::RecruiterJobsController < Recruiters::BaseController
   before_action :set_recruiter_job, only: [:edit, :update, :destroy]
-  helper_method :count_applicants
+  # helper_method :count_applicants
 
     # def index
     #   if helpers.recruiter?
@@ -46,9 +46,9 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     end
   
     private
-      def count_applicants
-        @recruiter_job.applications.count
-      end
+      # def count_applicants
+      #   @recruiter_job.applications.count
+      # end
 
       def job_params
         params.require(:job).permit(:title, :description, :vacancies, :salary, :job_type)

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def recruiter?
-        if current_user.type == "Recruiter"
+        if current_user&.type == "Recruiter"
             true
         else
             false
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
 
     def applicant?
-        if current_user.type == "Applicant"
+        if current_user&.type == "Applicant"
             true
         else
             false

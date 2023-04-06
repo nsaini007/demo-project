@@ -1,4 +1,5 @@
 class ApplicationsController < ApplicationController
+    before_action :authenticate_user!
     def new
         @application = current_user.applications.new
     end

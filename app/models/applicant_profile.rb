@@ -6,9 +6,5 @@ class ApplicantProfile < ApplicationRecord
 
     def check_skills
         self.skills = YAML.load(self.skills).compact_blank
-        puts "#############"
-        puts "#############"
-        puts "#############"
-        puts self.skills
     end
 end

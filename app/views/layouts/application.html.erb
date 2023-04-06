@@ -61,6 +61,11 @@
       </script>
       <% end %>
 
-    
+      <% if !notice.nil? %>
+      <script>
+        toastr.error("<%= notice %>")
+      </script>
+      <% end %>
+
   </body>
 </html>
