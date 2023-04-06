@@ -218,9 +218,11 @@
                         <%= f.label :skills %>
                         <%= f.select(
                           :skills, 
-                          options_for_select( [ ["Options for select", ""] , ApplicantProfile::SKILLS.collect {|skill| skill} ] ),
+                          options_for_select( ApplicantProfile::SKILLS ),
                           { prompt: "Please select" },
                           multiple: true, required: true, style: "display: ;") %>
+                        
+                        <%#= f.select :skills, options_for_select(ApplicantProfile::SKILLS), {}, { data: { controller: 'slim', slim_target: 'field' } } %>
                         <%= f.submit "Update Skills" %>
                       <% end %>
                 </div>
