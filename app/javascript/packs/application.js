@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+import SlimSelect from 'slim-select'
 import toastr from 'toastr/toastr';
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -15,5 +16,6 @@ ActiveStorage.start()
 
 window.Rails = Rails;
 window.toastr = toastr;
+window.SlimSelect = SlimSelect;
 // toastr.options.closeButton = true;
 toastr.options.target = '#my-toastr-container';

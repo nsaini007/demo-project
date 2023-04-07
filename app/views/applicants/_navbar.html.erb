@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color: #1754D5;">>
+<nav class="navbar navbar-expand-lg" style="background-color: #1754D5; padding: 10px 0px;">>
   <!-- Container wrapper -->
   <div class="container">
     <!-- Toggle button -->
@@ -82,12 +82,7 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <% if current_user.profile_picture.attached? %>
-            <%= image_tag current_user.profile_picture, alt: "Avatar", class: "rounded-circle", height: "25", width: "25", style: "object-fit: cover;", alt: "Black and White Portrait of a Man", loading: "lazy"  %>
-          <% else %>
-            <img src="https://pixlok.com/wp-content/uploads/2021/10/Profile-Free-Icon.png"
-            alt="Avatar" class= "rounded-circle" height= "25" width="25" style="object-fit: cover;"/>
-          <% end %>
+          <%= image_tag current_user.profile_picture, alt: "Avatar", class: "rounded-circle", height: "35", width: "35", style: "object-fit: cover;", alt: "Black and White Portrait of a Man", loading: "lazy"  %>
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"

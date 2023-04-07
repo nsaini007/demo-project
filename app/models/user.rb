@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :type,:first_name, :last_name,  presence: true
 
   validate :check_type
-
+  before_create :add_default_cover
   after_create :create_applicant_profile
 
   
@@ -21,11 +21,18 @@ class User < ApplicationRecord
         self.errors.add(:type, "Not a valid type")
       end 
   end
+  
+  def add_default_cover
+    unless profile_picture.attached?
+      self.profile_picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "Profile-Free-Icon.png")), filename: 'Profile-Free-Icon.png' , content_type: "image/png")
+    end
+  end
 
   def create_applicant_profile
     if self.type == "Applicant"
       self.applicant_profile.create      
     end
   end
+
 
 end
