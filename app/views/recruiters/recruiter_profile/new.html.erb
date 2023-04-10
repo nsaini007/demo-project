@@ -1,0 +1,25 @@
+<div class="container">
+	<div>
+		<h1 class="my-5">Select your Company</h1>
+			<%= form_with model: @profile, url: recruiter_profile_index_path do |f| %>
+			<div class="row">
+				<div class="col-6">
+					<%= f.select(
+						:company_id, 
+						Company.pluck(:name, :id),
+						prompt: "Please select" , required: true) %>
+					</div>
+					<div class="col-12 my-2">
+						<%= f.submit "submit", class: "btn btn-primary" %>
+					</div>
+				</div>
+				<% end %>
+		</div>
+</div>
+
+<script>
+	new SlimSelect({
+		select: '#recruiter_profile_company_id',
+		closeOnSelect: false,
+	})
+</script>

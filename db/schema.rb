@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_091701) do
+ActiveRecord::Schema.define(version: 2023_04_10_094333) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 2023_04_05_091701) do
     t.index ["job_id"], name: "index_applications_on_job_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -70,6 +76,15 @@ ActiveRecord::Schema.define(version: 2023_04_05_091701) do
     t.datetime "discarded_at"
     t.index ["discarded_at"], name: "index_jobs_on_discarded_at"
     t.index ["recruiter_id"], name: "index_jobs_on_recruiter_id"
+  end
+
+  create_table "recruiter_profiles", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "recruiter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_recruiter_profiles_on_company_id"
+    t.index ["recruiter_id"], name: "index_recruiter_profiles_on_recruiter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,4 +113,6 @@ ActiveRecord::Schema.define(version: 2023_04_05_091701) do
   add_foreign_key "applications", "jobs"
   add_foreign_key "applications", "users", column: "applicant_id"
   add_foreign_key "jobs", "users", column: "recruiter_id"
+  add_foreign_key "recruiter_profiles", "companies"
+  add_foreign_key "recruiter_profiles", "users", column: "recruiter_id"
 end

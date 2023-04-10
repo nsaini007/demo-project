@@ -20,32 +20,36 @@
 
 
 <script>
-    let jobCardArr = document.querySelectorAll(".jobcard__btn");
-    for(let i= 0; i<jobCardArr.length; i++) {
-        // console.log(e.target);
-        jobCardArr[i].addEventListener("click", (e) => {
-            console.log(e.target.parentElement.parentElement.parentElement);
+    
+    // deleteBtn
+    // for(let i= 0; i<jobCardArr.length; i++) {
+    //     // console.log(e.target);
+    //     jobCardArr[i].addEventListener("click", (e) => {
+    //         console.log(e.target.parentElement.parentElement.parentElement);
             
-            e.target.parentElement.parentElement.parentElement.classList.add("removed");
+    //         e.target.parentElement.parentElement.parentElement.classList.add("removed");
 
-            setTimeout(() => {
-                e.target.parentElement.parentElement.parentElement.remove();
-            }, 700);
+    //         setTimeout(() => {
+    //             e.target.parentElement.parentElement.parentElement.remove();
+    //         }, 700);
 
-            console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
-            jobId = getJobId();
-            console.log(jobId);
-            jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + jobId;
-            console.log(jobUrl);
+    //         console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
+    //         console.log(this);
+    //         jobId = this.getJobId();
+    //         console.log(jobId);
+    //         jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + jobId;
+    //         console.log(jobUrl);
 
 
-            Rails.ajax({
-                url: jobUrl,
-                type: "delete",
-            });
+    //         Rails.ajax({
+    //             url: jobUrl,
+    //             type: "delete",
+    //         });
             
-        });
-    }
+    //     });
+    // }
+
+    
 </script>
 
 

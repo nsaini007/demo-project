@@ -22,7 +22,11 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     if resource.type == "Recruiter"
-      recruiter_index_path  
+      if !resource.recruiter_profile.present?
+        new_recruiter_profile_path
+      else
+        recruiter_index_path        
+      end
     elsif resource.type == "Applicant"
       applicant_profile_path(resource)
     else

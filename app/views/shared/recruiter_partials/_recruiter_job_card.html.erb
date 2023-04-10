@@ -42,7 +42,8 @@
         <%= link_to "Edit", edit_recruiter_recruiter_job_path(current_user,job) %>
         <%= link_to "Show", job_path(job) %>
         <%= link_to "Applications", recruiter_recruiter_applications_path(id: job.id, recruiter_id: current_user) %>
-        <%= link_to "Delete", recruiter_recruiter_job_path(current_user,job), method: :delete, class: "jobcard__btn", remote: true %>
+        <%#= link_to "Delete", recruiter_recruiter_job_path(current_user,job), method: :delete, class: "jobcard__btn", remote: true %>
+        <%= link_to "Delete", {}, class: "jobcard__btn", remote: true, id: "jobcard__btn" + job.id.to_s %>
         </div>
     </div>
 </div>
@@ -73,7 +74,33 @@ select:focus {
 </style>
 
 <script>
+    console.log(`jobcard__btn${<%=job.id%>}`);
+    deleteBtn = document.querySelector(`#jobcard__btn${<%=job.id%>}`)
+    
+    deleteBtn.addEventListener("click", (e) => {
+        console.log(e.target.parentElement.parentElement.parentElement);
+        
+        e.target.parentElement.parentElement.parentElement.classList.add("removed");
+
+        setTimeout(() => {
+            e.target.parentElement.parentElement.parentElement.remove();
+        }, 700);
+
+        console.log( "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/");
+        console.log(this);
+        jobId = this.getJobId();
+        console.log(jobId);
+        jobUrl = "recruiter/" + <%= current_user.id %> + "/recruiter_jobs/" + "<%=job.id%>";
+        console.log(jobUrl);
+
+
+        Rails.ajax({
+            url: jobUrl,
+            type: "delete",
+        });
+            
+    })
     getJobId = () => {
-        return <%=job.id %>
+        return <%= job.id %>
     }
 </script>

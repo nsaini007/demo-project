@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :recruiters do
+    resources :recruiter_profile, except: [:index] 
     resources :recruiter, only: [:index] do
       resources :recruiter_applications do
         patch :accept, :reject

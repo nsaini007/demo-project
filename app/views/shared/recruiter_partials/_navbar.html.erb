@@ -82,14 +82,14 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
-          <%#= image_tag current_user.profile_picture, alt: "Avatar", class: "rounded-circle", height: "35", width: "35", style: "object-fit: cover;", alt: "Black and White Portrait of a Man", loading: "lazy"  %>
+          <%= image_tag current_user.profile_picture, alt: "Avatar", class: "rounded-circle", height: "35", width: "35", style: "object-fit: cover;", alt: "Black and White Portrait of a Man", loading: "lazy"  %>
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <%= link_to "Profile", {}, class: "dropdown-item" %>
+            <%= link_to "Profile", recruiter_profile_path(current_user), class: "dropdown-item" %>
           </li>
           <li>
             <%= link_to "logout", destroy_user_session_path,class: "dropdown-item", method: :delete  %>
