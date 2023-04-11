@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def create_profile_for_applicant
-    debugger
+    # debugger
     if self.type == "Applicant"
       self.create_applicant_profile      
     end

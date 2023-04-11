@@ -17,7 +17,7 @@ RSpec. describe User, type: :model do
     
     context "after_create" do
 
-      it {debugger}
+      # it {debugger}
       it "should create applicant profile for applicants" do
         # user = create(:user)
         # applicant_profile = create(:applicant_profile, applicant_id: user)
