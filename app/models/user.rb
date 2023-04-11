@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validate :check_type
   before_create :add_default_cover
-  after_create :create_applicant_profile
+  after_create :create_profile_for_applicant
 
   
   def name
@@ -28,9 +28,10 @@ class User < ApplicationRecord
     end
   end
 
-  def create_applicant_profile
+  def create_profile_for_applicant
+    debugger
     if self.type == "Applicant"
-      self.applicant_profile.create      
+      self.create_applicant_profile      
     end
   end
 
