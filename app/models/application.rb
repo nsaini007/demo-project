@@ -6,6 +6,7 @@ class Application < ApplicationRecord
   has_one_attached :resume
 
   validates :applicant_id, uniqueness: { scope: :job_id }
+  validates :resume, presence: true
 
 
   aasm column: 'status' do
