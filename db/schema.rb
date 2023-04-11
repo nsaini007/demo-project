@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2023_04_10_094333) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,16 +44,16 @@ ActiveRecord::Schema.define(version: 2023_04_10_094333) do
   end
 
   create_table "applicant_profiles", force: :cascade do |t|
-    t.integer "applicant_id", null: false
+    t.bigint "applicant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "skills", default: "--- []\n"
+    t.string "skills", default: [], array: true
     t.index ["applicant_id"], name: "index_applicant_profiles_on_applicant_id"
   end
 
   create_table "applications", force: :cascade do |t|
-    t.integer "job_id", null: false
-    t.integer "applicant_id", null: false
+    t.bigint "job_id", null: false
+    t.bigint "applicant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 2023_04_10_094333) do
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "recruiter_id", null: false
+    t.bigint "recruiter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "vacancies"
@@ -79,8 +82,8 @@ ActiveRecord::Schema.define(version: 2023_04_10_094333) do
   end
 
   create_table "recruiter_profiles", force: :cascade do |t|
-    t.integer "company_id", null: false
-    t.integer "recruiter_id", null: false
+    t.bigint "company_id", null: false
+    t.bigint "recruiter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_recruiter_profiles_on_company_id"

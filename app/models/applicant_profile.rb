@@ -5,6 +5,6 @@ class ApplicantProfile < ApplicationRecord
     SKILLS = %i[Ruby Rails Python Django React MERN DevOPS AWS Java SpringBoot]
 
     def check_skills
-        self.skills = YAML.load(self.skills).compact_blank
+        self.skills = self.skills.compact_blank
     end
 end
