@@ -46,7 +46,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   
   # added
-  gem 'rails-controller-testing'
+  # gem 'rails-controller-testing'
   gem 'spring'
 end
 

@@ -66,7 +66,8 @@ RSpec.configure do |config|
 
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
   config.include Devise::Test::IntegrationHelpers, type: :request
-  config.include Devise::TestHelpers, type: :controller
+  # config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
 end
 

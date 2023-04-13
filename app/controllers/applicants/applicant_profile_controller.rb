@@ -4,16 +4,20 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
     # @profile = current_user.applicant_profile
   end
 
+
+  #new to be removed no use
   def new
     @profile = ApplicantProfile.new
   end
 
+  #create to be removed also no use
   def create
     @profile = current_user.applicant_profile.create!(profile_params)
     if @profile.save
       redirect_to root_path
     else
-      render :new
+      # render :new
+      #to be resolved
     end
   end
 
@@ -25,6 +29,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
     if set_profile.update(profile_params)
       redirect_to applicant_profile_path, notice: "profile has been updated successfully"
     else
+      #to be remove no template for edit no use editing in show
       render :edit
     end
   end

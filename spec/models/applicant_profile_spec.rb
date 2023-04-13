@@ -16,7 +16,7 @@ RSpec.describe ApplicantProfile, type: :model do
 
   describe "before_validation" do
     describe "#check_skills" do
-      let(:applicant_profile) { FactoryBot.create(:applicant_profile, skills: ["Ruby", nil, "Python", ""]) }
+      let(:applicant_profile) { create(:applicant_profile, skills: ["Ruby", nil, "Python", ""]) }
       
       it "removes any nil or blank skills" do
         expect(applicant_profile.skills).to eq(["Ruby", "Python"])

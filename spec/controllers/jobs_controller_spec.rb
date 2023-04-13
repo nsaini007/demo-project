@@ -6,19 +6,19 @@ RSpec.describe JobsController, type: :controller do
 
     describe "#choose_layout" do
         it "chooses applicant layout for applicants" do
-        applicant.confirm
-        sign_in applicant
-        expect(controller.choose_layout).to eq('applicant')
-    end
+            applicant.confirm
+            sign_in applicant
+            expect(controller.choose_layout).to eq('applicant')
+        end
     
-    it "chooses recruiter layout for recruiters" do
-        recruiter.confirm
-        sign_in recruiter
-        expect(controller.choose_layout).to eq('recruiter')
+        it "chooses recruiter layout for recruiters" do
+            recruiter.confirm
+            sign_in recruiter
+            expect(controller.choose_layout).to eq('recruiter')
         end
 
         it "chooses application layout for non-authenticated users" do
-        expect(controller.choose_layout).to eq('application')
+            expect(controller.choose_layout).to eq('application')
         end
     end
 
@@ -27,18 +27,18 @@ RSpec.describe JobsController, type: :controller do
         let!(:job2) { create(:job, title: "Product Manager") }
 
         it "returns a successful response" do
-        get :index
-        expect(response).to be_successful
+            get :index
+            expect(response).to be_successful
         end
 
         it "returns all jobs" do
-        get :index
-        expect(assigns(:jobs)).to eq([job2, job1])
+            get :index
+            expect(assigns(:jobs)).to eq([job2, job1])
         end
 
         it "searches for jobs" do
-        get :index, params: { q: { title_cont: "Software" } }
-        expect(assigns(:jobs)).to eq([job1])
+            get :index, params: { q: { title_cont: "Software" } }
+            expect(assigns(:jobs)).to eq([job1])
         end
     end
 
@@ -46,13 +46,13 @@ RSpec.describe JobsController, type: :controller do
         let!(:job) { create(:job) }
 
         it "returns a successful response" do
-        get :show, params: { id: job.id }
-        expect(response).to be_successful
+            get :show, params: { id: job.id }
+            expect(response).to be_successful
         end
 
         it "finds the job" do
-        get :show, params: { id: job.id }
-        expect(assigns(:job)).to eq(job)
+            get :show, params: { id: job.id }
+            expect(assigns(:job)).to eq(job)
         end
     end
 end
