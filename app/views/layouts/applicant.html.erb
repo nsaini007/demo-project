@@ -7,10 +7,12 @@
     <%= csp_meta_tag %>
 
     <%# <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script> %>
+    
     <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"/>
-    <%= stylesheet_link_tag 'applicants/applicant_profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'applicants/applicant_profile', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'mdb', 'data-turbolinks-track': 'reload' %>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -42,9 +44,11 @@
     -->
     <%= yield %>
     <%= render "shared/footer" %>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
-    ></script>
+    <script>
+      profileBtn = document.getElementById("navbarDropdownMenuAvatar");
+      profileBtn.addEventListener("click", () => {
+        document.querySelector(".dropdown-menu").classList.toggle("animation")
+      })
+    </script>
   </body>
 </html>

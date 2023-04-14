@@ -4,11 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :type,:first_name, :last_name,  presence: true
+  validates :type, :first_name, :last_name,  presence: true
 
-  validate :check_type
+  validate :check_type, :correct_image_type
   before_create :add_default_cover
-  after_create :create_profile_for_applicant
+  # after_create :create_profile_for_applicant
 
   
   def name
@@ -28,12 +28,15 @@ class User < ApplicationRecord
     end
   end
 
-  def create_profile_for_applicant
-    # debugger
-    if self.type == "Applicant"
-      self.create_applicant_profile      
+  def correct_image_type
+    if profile_picture.attached? && !profile_picture.content_type.in?(%w(image/jpeg image/png image/gif))
+      errors.add(:document, 'Must be a valid image file')
     end
   end
 
-
+  # def create_profile_for_applicant
+  #   if self.type == "Applicant"
+  #     self.create_applicant_profile      
+  #   end
+  # end
 end

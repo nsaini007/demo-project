@@ -24,7 +24,7 @@ class Recruiters::RecruiterProfileController < Recruiters::BaseController
     if set_profile.update(profile_params)
         redirect_to recruiter_profile_path, notice: "profile has been updated successfully"
     else
-        render :edit
+        redirect_to recruiter_profile_path, notice: "Error in updating profile"
     end
     end
 

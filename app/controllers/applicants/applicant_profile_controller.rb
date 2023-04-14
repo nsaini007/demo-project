@@ -29,8 +29,8 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
     if set_profile.update(profile_params)
       redirect_to applicant_profile_path, notice: "profile has been updated successfully"
     else
-      #to be remove no template for edit no use editing in show
-      render :edit
+      redirect_to applicant_profile_path, notice: "Error in updating profile"
+      # render :edit
     end
   end
 
