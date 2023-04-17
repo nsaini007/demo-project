@@ -25,6 +25,7 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     end
 
     def edit
+
       # @job = current_user.jobs.find_by_id(params[:id])
     end
     
