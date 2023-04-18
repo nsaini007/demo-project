@@ -1,12 +1,12 @@
 class Recruiters::RecruiterApplicationsController < Recruiters::BaseController
   before_action :set_recruiter_applications, only: [:index, :accept, :reject]
   helper_method :accepted_applications, :rejected_applications
-  def index
-  end
+
+  def index;end
 
   def accept
     @recruiter_applications.find(params[:recruiter_application_id]).accept!
-    redirect_to request.referrer
+    redirect_to request.referrer  
   end
 
   def reject

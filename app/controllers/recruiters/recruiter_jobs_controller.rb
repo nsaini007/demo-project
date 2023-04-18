@@ -1,15 +1,5 @@
 class Recruiters::RecruiterJobsController < Recruiters::BaseController
   before_action :set_recruiter_job, only: [:edit, :update, :destroy]
-  # helper_method :count_applicants
-
-    # def index
-    #   if helpers.recruiter?
-    #     id = current_user.id
-    #     @recruiter_jobs = current_user.jobs.discarded
-    #   else
-    #     "nothing"#to be resolved
-    #   end
-    # end
 
     def new
       @recruiter_job = Job.new
@@ -24,10 +14,7 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
       end
     end
 
-    def edit
-
-      # @job = current_user.jobs.find_by_id(params[:id])
-    end
+    def edit;end
     
     def update
       if set_recruiter_job.update(job_params)
@@ -38,19 +25,20 @@ class Recruiters::RecruiterJobsController < Recruiters::BaseController
     end
     
     def destroy
-      # @job = current_user.jobs.find_by_id(params[:id])
       if @recruiter_job.discard
-        # redirect_to recruiter_index_path, notice: "Job has beeen deleted successfully"
+        respond_to do |format|
+          format.html { redirect_to recruiter_index_path }
+          format.json { render :json => {:message => "success", :body => @recruiter_job} }
+        end
       else
-        
+        respond_to do |format|
+          format.html { redirect_to request.env["HTTP_REFERER"], notice: "Cannot perform action!"  }
+          format.json { render :json => {:message => "false"} }
+        end        
       end
     end
   
     private
-      # def count_applicants
-      #   @recruiter_job.applications.count
-      # end
-
       def job_params
         params.require(:job).permit(:title, :description, :vacancies, :salary, :job_type)
       end

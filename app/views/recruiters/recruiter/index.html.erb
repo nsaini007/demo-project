@@ -11,9 +11,10 @@
 <%= render partial: "shared/recruiter_partials/sidebar" %>
 
 <div class="container" style="margin-top: 6rem;">    
-        <% @recruiter_jobs.each do |job| %>
-            <%= render partial: "shared/recruiter_partials/recruiter_job_card", locals: {job: job}%>
-        <% end %>
+        <%# @recruiter_jobs.each do |job| %>
+            <%#= render partial: "shared/recruiter_partials/recruiter_job_card", locals: {job: job}%>
+        <%# end %>
+        <%= render partial: "shared/recruiter_partials/recruiter_job_card", collection: @recruiter_jobs, as: :job %>
 </div>
 
 

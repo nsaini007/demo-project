@@ -1,8 +1,6 @@
 class Applicants::ApplicantProfileController < Applicants::BaseController
   before_action :set_profile, only: [:show, :edit]
-  def show
-    # @profile = current_user.applicant_profile
-  end
+  def show;end
 
 
   #new to be removed no use
@@ -21,9 +19,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
     end
   end
 
-  def edit
-    
-  end
+  def edit;end
 
   def update
     if set_profile.update(profile_params)

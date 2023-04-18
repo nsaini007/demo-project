@@ -18,7 +18,6 @@ RSpec.describe Recruiters::RecruiterJobsController, type: :controller do
     end
 
     describe '#create' do
-        # let!(:job) { create(:job, recruiter: recruiter) }
         it 'creates the new job' do
             expect {
                 post :create, params: {recruiter_id: recruiter.id, job: attributes_for(:job)}
@@ -33,15 +32,19 @@ RSpec.describe Recruiters::RecruiterJobsController, type: :controller do
         end
     end
 
-    # let!(:job) { create(:job, recruiter: recruiter) }
-    # describe '#update' do
-    #     # let!(:job) { create(:job, recruiter: recruiter) }
-    #     job.title = "hello"
-    #     job.save
-    #     it 'updates the job' do
-    #         put :update, params: { recruiter_id: recruiter.id, job: job.id }
-    #         # project.reload
-    #         expect(job.name).to eq("hello")
-    #     end
-    # end
+    let!(:job) { create(:job, recruiter: recruiter) }
+    describe '#update' do
+        it 'updates the job' do
+            put :update, params: { recruiter_id: recruiter.id, id: job1.id, job: {title: 'updated title'}}
+            expect(assigns[:recruiter_job].title).to eq('updated title')
+        end
+    end
+
+    describe '#delete' do
+        it 'deletes the job' do
+            expect {
+                delete :destroy, params: {recruiter_id: recruiter.id, id: job1.id}
+            }.to change(Job.kept, :count).by(-1)
+        end
+    end
 end

@@ -1,29 +1,33 @@
 require 'rails_helper'
 RSpec.describe ApplicationsController, type: :controller do
   describe "POST #create" do
-    let(:user) { FactoryBot.create(:applicant) }
-    let(:job) { FactoryBot.create(:job) }
+    let(:user) { create(:applicant) }
+    let(:applicant) { create(:applicant) }
+    let(:job) { create(:job) }
 
     before do
-      user.confirm
-      sign_in user
+      applicant.confirm
+      sign_in applicant
     end
 
     context "with valid params" do
+      let(:job1) { create(:job) }
       it "creates a new application" do
         expect {
-          post :create, params: { job_id: job.id }
+          post :create, params: {job_id: job1.id, resume: Rack::Test::UploadedFile.new(Rails.root.join('spec', 'support', 'resume.pdf'), 'application/pdf')}
         }.to change(Application, :count).by(1)
       end
 
-      it "redirects to the job page" do
-        post :create, params: { job_id: job.id }
-        expect(response).to redirect_to(job_path(id: job.id))
+      
+      it "sets a success message" do
+        debugger
+        post :create, params: {job_id: job1.id, resume: Rack::Test::UploadedFile.new(Rails.root.join('spec', 'support', 'resume.pdf'), 'application/pdf')}
+        expect(flash[:alert]).to eq("Job applied successfully")
       end
 
-      it "sets a success message" do
-        post :create, params: { job_id: job.id }
-        expect(flash[:alert]).to eq("Job applied successfully")
+      it "redirects to the job page" do
+        post :create, params: {job_id: job1.id, resume: Rack::Test::UploadedFile.new(Rails.root.join('spec', 'support', 'resume.pdf'), 'application/pdf')}
+        expect(response).to redirect_to(job_path(id: job1.id))
       end
     end
 

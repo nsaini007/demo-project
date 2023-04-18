@@ -3,11 +3,6 @@ class Recruiters::RecruiterController < Recruiters::BaseController
   
   def index
     #any problem occurs write helpers.recruiter?
-    if recruiter?
-      id = current_user.id
       @recruiter_jobs = current_user.jobs.kept.order('created_at DESC')
-    else
-      redirect_to root_path, alert: "You are not a recruiter"
-    end
   end
 end

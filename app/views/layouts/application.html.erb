@@ -54,11 +54,11 @@
     
 
       <% if !flash.any? %>
-        <% flash.do |flash| %>
+        <% flash.each do |flash| %>
           <script>
               toastr.error("<%= flash%>")
-            end
           </script>
+        <% end %>
       <% end %>
 
       <% if !notice.nil? %>

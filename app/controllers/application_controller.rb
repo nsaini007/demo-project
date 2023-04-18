@@ -30,4 +30,12 @@ class ApplicationController < ActionController::Base
             false
         end
     end   
+
+    def authenticate_recruiter!
+        redirect_to root_path unless recruiter?
+    end
+
+    def authenticate_applicant!
+        redirect_to root_path unless applicant?
+    end
 end
