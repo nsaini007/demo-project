@@ -14,7 +14,7 @@ RSpec.describe Recruiters::RecruiterController, type: :controller do
         
         # it {debugger}
         it "returns a successful response" do
-            debugger
+            # debugger
             get :index
             expect(response).to be_successful
         end

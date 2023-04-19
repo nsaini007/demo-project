@@ -11,7 +11,7 @@
             <%= form_with model: @application, url: applications_path(job_id: @job) do |f| %>
                 <%#= f.hidden_field :job_id, value: @job.id  %>
                 <%= f.label :resume, style: "color: black;" %><br>
-                <%= f.file_field :resume, class: "btn btn-primary" %>
+                <%= f.file_field :resume, class: "btn btn-primary", required: true %>
                 <%= f.submit "Apply", class: "btn btn-primary mt-2"%>
             <% end %>
             <%#= link_to "Apply", {}, class: "btn btn-primary mt-2" %>

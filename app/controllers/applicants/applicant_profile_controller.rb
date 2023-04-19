@@ -23,6 +23,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
 
   def update
     if set_profile.update(profile_params)
+      debugger
       redirect_to applicant_profile_path, notice: "profile has been updated successfully"
     else
       redirect_to applicant_profile_path, notice: "Error in updating profile"
@@ -34,7 +35,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
     def profile_params
       params.require(:applicant_profile).permit(:resume, skills:[])
     end
-
+    
     def set_profile
       @profile = current_user.applicant_profile
     end

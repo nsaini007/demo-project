@@ -46,14 +46,14 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
     ></script>
-      <% if !alert.nil? %>
-      <script>
-        toastr.error("<%= alert%>")
-      </script>
+      <% unless alert.nil? %>
+        <script>
+          toastr.error("<%= alert%>")
+        </script>
       <% end %>
     
 
-      <% if !flash.any? %>
+      <% unless flash.any? %>
         <% flash.each do |flash| %>
           <script>
               toastr.error("<%= flash%>")
@@ -61,10 +61,10 @@
         <% end %>
       <% end %>
 
-      <% if !notice.nil? %>
-      <script>
-        toastr.error("<%= notice %>")
-      </script>
+      <% unless notice.nil? %>
+        <script>
+          toastr.error("<%= notice %>")
+        </script>
       <% end %>
 
   </body>
