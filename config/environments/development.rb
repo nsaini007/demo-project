@@ -91,6 +91,7 @@ Rails.application.configure do
   #   read_timeout:         5 }
 end
 
+#disables in-field errors in forms
 ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   html_tag.html_safe
 end

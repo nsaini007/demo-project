@@ -23,8 +23,7 @@ class Applicants::ApplicantProfileController < Applicants::BaseController
 
   def update
     if set_profile.update(profile_params)
-      debugger
-      redirect_to applicant_profile_path, notice: "profile has been updated successfully"
+      redirect_to applicant_profile_path, notice: "Profile has been updated successfully"
     else
       redirect_to applicant_profile_path, notice: "Error in updating profile"
       # render :edit

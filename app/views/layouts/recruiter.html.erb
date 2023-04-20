@@ -6,10 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
+    <script src='https://js.stripe.com/v3/'></script>
     <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'mdb', 'data-turbolinks-track': 'reload' %>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -33,33 +34,15 @@
   </head>
 
   <body>
+    <div id="my-toastr-container"></div>
+    <%= render partial: 'shared/notifications' %>
     <%= render "shared/recruiter_partials/navbar" %>
-      <div id="my-toastr-container"></div>
-      <!--
-      <p class="notice"><%= notice %></p>
-      <p class="notice"><%= current_user&.type %></p>
-      <p class="alert"><%= alert %></p>
-      -->
-      
-    
     <%= yield %>
     <%= render "shared/footer" %>
       <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
       ></script>
-
-    <!--
-      <% if !alert.nil? || !flash.any?%>
-      <script>
-        toastr.error("<%= alert%>")
-        toastr.error("<%= flash%>")
-        toastr.success('We do have the Kapua suite available.')
-        toastr.success('We do have the Kapua suite available.')
-        toastr.success('We do have the Kapua suite available.')
-      </script>
-      <% end %>
-    -->
 
     <script>
       profileBtn = document.getElementById("navbarDropdownMenuAvatar");

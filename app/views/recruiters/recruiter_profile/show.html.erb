@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'applicants/applicant_profile', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="main-content">
+
     <!-- Header -->
     <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
       <!-- Mask -->
@@ -10,7 +11,10 @@
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">Hello <%= current_user.first_name%></h1>
             <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-            <%= link_to "Edit Profile", edit_user_registration_path,class: "btn btn-info" %>
+            <div style="display: inline-block;">
+              <%= button_to 'Buy Premium', recruiter_checkout_path, class: "btn btn-info", remote: true %>
+            </div>
+            <%= link_to "Edit Profile", edit_user_registration_path,class: "btn btn-info" %><br/>
           </div>
         </div>
       </div>
@@ -96,14 +100,6 @@
                         <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<%= current_user.phone %>" disabled>
                       </div>
                     </div>
-                    <!--
-                      <div class="col-lg-6">
-                        <div class="form-group focused">
-                          <label class="form-control-label" for="input-last-name">Last name</label>
-                          <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
-                        </div>
-                      </div>
-                    -->
                   </div>
                 </div>
                 <hr class="my-4">
@@ -124,7 +120,7 @@
                         </div>
                       <% end %>
                 </div>
-                <%# <h6 class="heading-small text-muted mb-4">Skills</h6> %>
+
                 <div class="pl-lg-4">
                   <%= current_user.recruiter_profile&.company&.name %>
                   

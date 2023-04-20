@@ -1,0 +1,20 @@
+<% unless alert.nil? %>
+  <script>
+      toastr.info("<%= alert%>")
+  </script>
+<% end %>
+
+
+<% unless flash.any? %>
+  <% flash.each do |flash| %>
+      <script>
+          toastr.info("<%= flash%>")
+      </script>
+  <% end %>
+<% end %>
+
+<% unless notice.nil? %>
+  <script>
+      toastr.info("<%= notice %>")
+  </script>
+<% end %>

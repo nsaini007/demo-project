@@ -1,0 +1,6 @@
+const stripe = Stripe('pk_test_51Myay6SIPPEJG0n8J6gryROyNXDD8R8wBPu5RaCwRCAF4yMc9L9QokmTMR0AV28WpKwb4sSOumxRa6VWDTQADlwK00Hj9cUMqP');
+const checkoutButton = document.getElementById('checkout-button');
+
+stripe.redirectToCheckout({
+    sessionId: '<%= @session.id %>'
+})

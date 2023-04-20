@@ -1,20 +1,24 @@
-<div class="my-2 row job__card">
-    <div class="col-3">
-        <h5 class="card-title"><%= job.title %></h5>
+<div class="my-2 row job__card shadow-4 d-flex align-items-center rounded">
+    <div class="col-2">
+        <h6 class="card-title"><%= job.title %></h6>
         <p class="card-text"><span>Location: </span><%= "location" %></p>
         <%# <a href="#" class="btn btn-primary">Show Details</a> %>
     </div>
-    <div class="col-3 d-flex">
-        <div class="w-50">
+    <div class="col-2 d-flex">
+        <div class="w-100">
             <h6 class="card-title">Vacancies</h6>
             <p class="card-text"><%= job.vacancies %></p>
         </div>
-        <div class="w-50">
+        
+    </div>
+    <div class="col-2 d-flex">
+        <div class="w-100">
             <h6 class="card-title">Applicants</h6>
             <p class="card-text"><%= job.count_applicants%></p>
         </div>
+        
     </div>
-    <div class="col-3 d-flex">
+    <div class="col-2 d-flex">
         <div class="w-100">
             <h6 class="card-title">Job Status</h6>
             <p><%= job.status %></p>
@@ -22,8 +26,13 @@
 
     </div>
     
-    <div class="dropdown col-3">
-        <button class="dropbtn">Dropdown</button>
+    <div class="col-2">
+        
+
+    </div>
+    
+    <div class="dropdown col-2">
+        <button class="btn btn-primary bg-dark">Dropdown</button>
         <div class="dropdown-content">
         <%= link_to "Edit", edit_recruiter_recruiter_job_path(current_user,job) %>
         <%= link_to "Show", job_path(job) %>

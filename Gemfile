@@ -74,4 +74,3 @@ gem 'faker'
 gem 'sidekiq'
 gem 'stripe'
 
-

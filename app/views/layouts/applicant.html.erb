@@ -34,14 +34,9 @@
   </head>
 
   <body>
-  <div id="my-toastr-container"></div>
+    <div id="my-toastr-container"></div>
+    <%= render partial: 'shared/notifications' %>
     <%= render "applicants/navbar" %>
-
-    <!--
-      <p class="notice"><%= notice %></p>
-      <p class="notice"><%= current_user&.type %></p>
-      <p class="alert"><%= alert %></p>
-    -->
     <%= yield %>
     <%= render "shared/footer" %>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
@@ -51,25 +46,6 @@
         document.querySelector(".dropdown-menu").classList.toggle("animation")
       })
     </script>
-    <% unless alert.nil? %>
-        <script>
-          toastr.error("<%= alert%>")
-        </script>
-      <% end %>
     
-
-      <% unless flash.any? %>
-        <% flash.each do |flash| %>
-          <script>
-              toastr.error("<%= flash%>")
-          </script>
-        <% end %>
-      <% end %>
-
-      <% unless notice.nil? %>
-        <script>
-          toastr.error("<%= notice %>")
-        </script>
-      <% end %>
   </body>
 </html>

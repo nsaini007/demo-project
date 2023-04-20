@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   scope module: :recruiters do
     resources :recruiter_profile, except: [:index] 
+    post 'recruiter_checkout', to: 'recruiter_checkout#create'
     resources :recruiter, only: [:index] do
       resources :recruiter_applications do
         patch :accept, :reject
